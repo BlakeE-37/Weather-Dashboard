@@ -19,3 +19,23 @@ header {
 header h1 {
     margin: auto 0;
 }
+
+main {
+    display: grid;
+    grid-template-columns: 1 1 1 1 1 1;
+}
+
+main section {
+    margin: 1vh;
+    border: 2px solid black;
+    height: 22vh;
+    grid-column: 2/6;
+}
+
+main aside {
+    margin: 1vh;
+    border: 2px solid black;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 80vh;
+}
