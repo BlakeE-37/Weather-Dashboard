@@ -3,6 +3,7 @@
 body {
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
+    background-color: #f1f1f1;
 }
 
 header {
@@ -22,20 +23,54 @@ header h1 {
 
 main {
     display: grid;
-    grid-template-columns: 1 1 1 1 1 1;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 main section {
     margin: 1vh;
     border: 2px solid black;
     height: 22vh;
-    grid-column: 2/6;
+    grid-column: 2/7;
 }
 
 main aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 1vh;
     border: 2px solid black;
     grid-column: 1/2;
     grid-row: 1/2;
     height: 80vh;
+}
+
+main aside h2 {
+    margin: 10px auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+main aside input {
+    width: 90%;
+    height: 3.5vh;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+main aside button {
+    width: 90%;
+    padding: 0;
+    height: 3vh;
+    border: none;
+    background-color: #006aff;
+    color: white;
+    font-family: 'Fira Sans', sans-serif;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+main aside button:hover {
+    background-color: #0152c4;
+    color: white;
 }
