@@ -22,8 +22,20 @@ function addToLocalStorage(city) {
     var cities = JSON.parse(localStorage.getItem('cities'))
     // console.log(typeof cities)
     if (cities) {
-        cities.push(city)
-        localStorage.setItem('cities', JSON.stringify(cities))
+        // check for duplicate
+        // had to make this messy duplicate check code because its not an actual array its an object so I am unable to use .includes()
+        let duplicate = false
+        cities.forEach(cityInArray => {
+            if (cityInArray === city) {
+                duplicate = true;
+            };
+        });
+        if (duplicate) {
+            return
+        } else {
+            cities.push(city)
+            localStorage.setItem('cities', JSON.stringify(cities))
+        }
     } else {
         let cityArray = [city]
         localStorage.setItem('cities', JSON.stringify(cityArray))
@@ -64,9 +76,12 @@ function getWeather(city) {
 // search button
 searchButton.on('click', function () {
     let city = searchTextBox.val()
-    addToLocalStorage(city)
-    getWeather(city)
-    loadLocalStorage()
+    // check for a blank text box
+    if (city) {
+        addToLocalStorage(city)
+        getWeather(city)
+        loadLocalStorage()
+    }
 })
 
 
