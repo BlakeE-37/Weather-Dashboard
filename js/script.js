@@ -17,7 +17,7 @@ function populateCurrentWeather(data) {
     icon.attr('src', imgUrl)
 }
 
-function addToLocalStorage() {
+function addToLocalStorage(city) {
     // add city to local storage
     var cities = JSON.parse(localStorage.getItem('cities'))
     // console.log(typeof cities)
