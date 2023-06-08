@@ -75,3 +75,9 @@ main aside button:hover {
     background-color: #0152c4;
     color: white;
 }
+
+/* dynamically populated CSS */
+.currentWeatherTitle {
+    font-size: 40px;
+    margin: 1vw;
+}
