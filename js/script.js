@@ -23,7 +23,7 @@ function addToLocalStorage(city) {
     // console.log(typeof cities)
     if (cities) {
         // check for duplicate
-        // had to make this messy duplicate check code because its not an actual array its an object so I am unable to use .includes()
+        // had to make this messy duplicate-check-code because its not an actual array its an object so I am unable to use .includes()
         let duplicate = false
         cities.forEach(cityInArray => {
             if (cityInArray === city) {
@@ -36,6 +36,7 @@ function addToLocalStorage(city) {
             cities.push(city)
             localStorage.setItem('cities', JSON.stringify(cities))
         }
+        // iff cities is empty in local storage
     } else {
         let cityArray = [city]
         localStorage.setItem('cities', JSON.stringify(cityArray))
@@ -51,7 +52,7 @@ function loadLocalStorage() {
         cities.forEach(city => {
             let btn = $('<button>')
             btn.text(city)
-            btn.attr('onclick', '')
+            btn.attr('onclick', 'getWeather("' + city + '")')
             localStorageButtons.append(btn)
         });
     };
