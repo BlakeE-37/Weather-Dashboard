@@ -66,6 +66,7 @@ main aside button {
     background-color: #006aff;
     color: white;
     font-family: 'Fira Sans', sans-serif;
+    font-size: 2vh;
     letter-spacing: 2px;
     cursor: pointer;
 }
