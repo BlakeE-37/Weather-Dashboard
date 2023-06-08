@@ -79,6 +79,7 @@ searchButton.on('click', function () {
     let city = searchTextBox.val()
     // check for a blank text box
     if (city) {
+        searchTextBox.val('')
         addToLocalStorage(city)
         getWeather(city)
         loadLocalStorage()
