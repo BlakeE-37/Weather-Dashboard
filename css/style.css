@@ -73,6 +73,10 @@ main aside button {
     cursor: pointer;
 }
 
+#searchButton {
+    margin-bottom: 2vh;
+}
+
 main aside button:hover {
     background-color: #0152c4;
     color: white;
@@ -94,4 +98,16 @@ main aside button:hover {
 .currentWeatherIcon {
     width: 5vw;
     height: 5vw;
+}
+
+.localStorageButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.localStorageButtons button {
+    width: 90%;
+    margin-top: 20px;
 }
