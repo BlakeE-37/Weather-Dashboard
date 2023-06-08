@@ -6,7 +6,7 @@ function populateCurrentWeather(data) {
 
     // create the header element
     let heading = $('<h2>')
-    heading.text(data.name)
+    heading.text(data.name + ':')
     heading.addClass('currentWeatherTitle')
     container.append(heading)
 
@@ -15,6 +15,13 @@ function populateCurrentWeather(data) {
     date.text(dayjs().format('dddd, MMMM D'))
     date.addClass('currentWeatherDate')
     container.append(date)
+
+    // create icon element
+    let icon = $('<img>')
+    let imgUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    icon.attr('src', imgUrl)
+    icon.addClass('currentWeatherIcon')
+    container.append(icon)
 }
 
 
