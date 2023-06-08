@@ -80,4 +80,10 @@ main aside button:hover {
 .currentWeatherTitle {
     font-size: 40px;
     margin: 1vw;
+    margin-bottom: 0;
+}
+
+.currentWeatherDate {
+    margin: 1vw;
+    margin-top: 0;
 }

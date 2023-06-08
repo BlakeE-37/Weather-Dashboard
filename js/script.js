@@ -12,7 +12,8 @@ function populateCurrentWeather(data) {
 
     // create the date element
     let date = $('<h3>')
-    date.text = (dayjs().format('dddd, MMMM D'))
+    date.text(dayjs().format('dddd, MMMM D'))
+    date.addClass('currentWeatherDate')
     container.append(date)
 }
 
