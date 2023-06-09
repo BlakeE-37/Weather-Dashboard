@@ -16,6 +16,7 @@ function populateFiveDayForecast(indexes, weatherList) {
     indexes.forEach((index, i) => {
         // get individual card in jquery
         let card = $(weatherCards[i])
+        card.empty()
 
         // create date h2
         let date = $('<h2>')
@@ -35,12 +36,12 @@ function populateFiveDayForecast(indexes, weatherList) {
 
         // create wind
         let wind = $('<h3>')
-        wind.text(`${weatherList[index]}`)
+        wind.text(`Wind Speed: ${Math.round(weatherList[index].wind.speed)}mph`)
         card.append(wind)
 
         // create humidity 
         let humid = $('<h3>')
-        humid.text(`${weatherList[index]}`)
+        humid.text(`Humidity: ${weatherList[index].main.humidity}${percent}`)
         card.append(humid)
     });
 };
@@ -66,7 +67,7 @@ function getFiveDayIndex(data) {
         if (weatherDate.isSame(dayChecker, 'day')) {
             // put the correct index into the indexes array to be sent to another function to add data to the dom
             indexes.push(index)
-            console.log(`populating from index ${index}`)
+            // console.log(`populating from index ${index}`)
             // add another day to the check to get the next day
             dayChecker = dayChecker.add(1, 'day')
             index++;
@@ -100,7 +101,7 @@ function populateCurrentWeather(data) {
     let wind = $('#currentWeatherWind')
     let humid = $('#currentWeatherHumid')
     temp.text(`Temperature: ${Math.round(data.list[0].main.temp)}${degree} F`)
-    wind.text(`Wind Speed: ${Math.round(data.list[0].wind.speed)} mph`)
+    wind.text(`Wind Speed: ${Math.round(data.list[0].wind.speed)}mph`)
     humid.text(`Humidity: ${Math.round(data.list[0].main.humidity)}${percent}`)
 }
 
