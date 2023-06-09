@@ -2,6 +2,51 @@ var searchTextBox = $('#searchText')
 const searchButton = $('#searchButton')
 const localStorageButtons = $('.localStorageButtons')
 
+
+// function populateFiveDayForecast(indexes, weatherList) {
+//     // foreach card add the correct data
+//     weatherCards = $('.oneDayWeather')
+//     weatherCards.each(card, function () {
+//         let date = $('<h2>')
+//         date.text('date')
+//         card.append(date)
+//     })
+// }
+
+function getFiveDayIndex(data) {
+    // check for the date in the api response and compare it to todays date plus one day,
+    // I continue checking until I have all the index that corespond with the next day in the api response
+
+    // 3 hour interval list of weather conditions
+    let weatherList = data.list
+
+    // 5 - day index array
+    let indexes = []
+
+    // set today - plus one day
+    let dayChecker = dayjs().add(1, 'day')
+
+    // foreach function that compares each day in the api response with today+1 until it finds a matching day and then moves onto comparing...
+    // the api response with today+2 and so on
+    let index = 0
+    weatherList.forEach(hourInterval => {
+        let weatherDate = dayjs(hourInterval.dt_txt)
+        if (weatherDate.isSame(dayChecker, 'day')) {
+            // put the correct index into the indexes array to be sent to another function to add data to the dom
+            indexes.push(index)
+            console.log(`populating from index ${index}`)
+            // add another day to the check to get the next day
+            dayChecker = dayChecker.add(1, 'day')
+            index++;
+        } else {
+            index++;
+        };
+    });
+    // send the array of indexes to the populate function
+    populateFiveDayForecast(indexes, weatherList)
+};
+
+
 function populateCurrentWeather(data) {
     // update the heading element
     let heading = $('.currentWeatherTitle')
@@ -79,7 +124,8 @@ function getWeather(city) {
         })
         .then(function (data) {
             console.log(data);
-            populateCurrentWeather(data)
+            populateCurrentWeather(data);
+            getFiveDayIndex(data);
         })
 };
 
