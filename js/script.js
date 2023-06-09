@@ -12,15 +12,19 @@ function populateCurrentWeather(data) {
     date.text(dayjs().format('dddd, MMMM D'))
 
     // create icon element
-    let icon = $('.currentWeatherIcon')
-    let imgUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    let icon = $('.currentWeatherIcon');
+    let imgUrl = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`
     icon.attr('src', imgUrl)
 
     // update temperature, wind speed, and humidity
+    const degree = String.fromCodePoint(176)
+    const percent = String.fromCodePoint(65285)
     let temp = $('#currentWeatherTemp')
     let wind = $('#currentWeatherWind')
     let humid = $('#currentWeatherHumid')
-    temp.text(`Temperature: ${Math.round(data.main.temp)}`)
+    temp.text(`Temperature: ${Math.round(data.list[0].main.temp)}${degree} F`)
+    wind.text(`Wind Speed: ${Math.round(data.list[0].wind.speed)} mph`)
+    humid.text(`Humidity: ${Math.round(data.list[0].main.humidity)}${percent}`)
 }
 
 function addToLocalStorage(city) {
