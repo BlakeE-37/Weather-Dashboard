@@ -6,6 +6,10 @@ const localStorageButtons = $('.localStorageButtons')
 function populateFiveDayForecast(indexes, weatherList) {
     // foreach card add the correct data
 
+    // unicode for special characters
+    const degree = String.fromCodePoint(176)
+    const percent = String.fromCodePoint(65285)
+
     // get the jquery object of cards
     weatherCards = $('.oneDayWeather')
 
@@ -25,10 +29,19 @@ function populateFiveDayForecast(indexes, weatherList) {
         card.append(icon)
 
         // create temp
+        let temp = $('<h3>')
+        temp.text(`Temperature: ${Math.round(weatherList[index].main.temp)}${degree}`)
+        card.append(temp)
 
         // create wind
+        let wind = $('<h3>')
+        wind.text(`${weatherList[index]}`)
+        card.append(wind)
 
         // create humidity 
+        let humid = $('<h3>')
+        humid.text(`${weatherList[index]}`)
+        card.append(humid)
     });
 };
 

@@ -172,13 +172,13 @@ main aside button:hover {
 }
 
 /* all children */
-.oneDayWeather h3,
-h2 {
-    margin-left: 1vw;
+.oneDayWeather h2 {
+    margin: 1vw;
     text-align: center;
 }
 
 .oneDayWeather h3 {
+    margin-left: 1vw;
     font-weight: 400;
 }
 
