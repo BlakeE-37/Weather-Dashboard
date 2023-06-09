@@ -1,7 +1,7 @@
 # Weather Dashboard
 
 ## Description
-I created this application to show my knowledge of server-side API's and my ability to use them to display dynamix data. This app was made using HTML, CSS, Javascript, along with secondary libraries including dayjs, and jquery. This Weather Dashboard allows you to search for a city, to see that cities current weather, and to also see a five day forecast for that city.
+I created this application to show my knowledge of server-side API's and my ability to use them to display dynamic data. This app was made using HTML, CSS, Javascript, along with secondary libraries including dayjs, and jquery. This Weather Dashboard allows you to search for a city, to see that cities current weather, as well as a five day forecast for that city.
 
 ![image of the website](./images/web-app-screenshot.png)
 
