@@ -46,9 +46,8 @@ function addToLocalStorage(city) {
 // get local storage buttons and add them to the DOM
 function loadLocalStorage() {
     localStorageButtons.empty()
-    let cities = localStorage.getItem('cities')
+    let cities = JSON.parse(localStorage.getItem('cities'))
     if (cities) {
-        cities = JSON.parse(cities)
         cities.forEach(city => {
             let btn = $('<button>')
             btn.text(city)
@@ -85,7 +84,5 @@ searchButton.on('click', function () {
         loadLocalStorage()
     }
 })
-
-
 
 loadLocalStorage()
