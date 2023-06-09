@@ -15,9 +15,14 @@
     </header>
     <main>
         <section id="currentWeather">
-            <h2 class="currentWeatherTitle">City</h2>
-            <h2 class="currentWeatherDate">Date</h2>
-            <img class="currentWeatherIcon" src="" alt="weather icon">
+            <div class="currentWeatherHeader">
+                <h2 class="currentWeatherTitle">City</h2>
+                <h2 class="currentWeatherDate">Date</h2>
+                <img class="currentWeatherIcon" src="" alt="weather icon">
+            </div>
+            <div class="currentWeatherBody">
+                <h3>wind speed</h3>
+            </div>
         </section>
         <aside id="searchContainer">
             <h2>Search for a City:</h2>
@@ -25,7 +30,18 @@
             <button id="searchButton">Search</button>
             <div class="localStorageButtons"></div>
         </aside>
-        <section id="fiveDayWeather"></section>
+        <section id="fiveDayWeather">
+            <div class="fiveDayWeatherHeader">
+                <h2 class="fiveDayTitle">5-Day Forecast:</h2>
+            </div>
+            <div class="fiveDayWeatherBody">
+                <div class="oneDayWeather"></div>
+                <div class="oneDayWeather"></div>
+                <div class="oneDayWeather"></div>
+                <div class="oneDayWeather"></div>
+                <div class="oneDayWeather"></div>
+            </div>
+        </section>
     </main>
     <!-- jquery add -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
