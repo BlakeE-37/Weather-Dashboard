@@ -148,7 +148,7 @@ function loadLocalStorage() {
 function getWeather(city) {
     // call the weather API
     let apiKey = 'e6dfd918c685c8022ca0666f1c5af0c6'
-    let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${apiKey}`
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${apiKey}`
     fetch(url, {
         method: "GET"
     })
