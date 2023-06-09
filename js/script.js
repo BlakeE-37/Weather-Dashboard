@@ -5,7 +5,7 @@ const localStorageButtons = $('.localStorageButtons')
 function populateCurrentWeather(data) {
     // update the heading element
     let heading = $('.currentWeatherTitle')
-    heading.text(data.name + ':')
+    heading.text(data.city.name + ':')
 
     // update the date element
     let date = $('.currentWeatherDate')
@@ -15,6 +15,12 @@ function populateCurrentWeather(data) {
     let icon = $('.currentWeatherIcon')
     let imgUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
     icon.attr('src', imgUrl)
+
+    // update temperature, wind speed, and humidity
+    let temp = $('#currentWeatherTemp')
+    let wind = $('#currentWeatherWind')
+    let humid = $('#currentWeatherHumid')
+    temp.text(`Temperature: ${Math.round(data.main.temp)}`)
 }
 
 function addToLocalStorage(city) {
@@ -60,7 +66,7 @@ function loadLocalStorage() {
 function getWeather(city) {
     // call the weather API
     let apiKey = 'e6dfd918c685c8022ca0666f1c5af0c6'
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`
+    let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${apiKey}`
     fetch(url, {
         method: "GET"
     })
