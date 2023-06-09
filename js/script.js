@@ -3,15 +3,30 @@ const searchButton = $('#searchButton')
 const localStorageButtons = $('.localStorageButtons')
 
 
-// function populateFiveDayForecast(indexes, weatherList) {
-//     // foreach card add the correct data
-//     weatherCards = $('.oneDayWeather')
-//     weatherCards.each(card, function () {
-//         let date = $('<h2>')
-//         date.text('date')
-//         card.append(date)
-//     })
-// }
+function populateFiveDayForecast(indexes, weatherList) {
+    // foreach card add the correct data
+
+    // get the jquery object of cards
+    weatherCards = $('.oneDayWeather')
+
+    indexes.forEach((index, i) => {
+        // get individual card in jquery
+        let card = $(weatherCards[i])
+
+        // create date h2
+        let date = $('<h2>')
+        date.text(dayjs(weatherList[index].dt_txt).format(`dddd, MMMM D`))
+        card.append(date)
+
+        // create img icon
+
+        // create temp
+
+        // create wind
+
+        // create humidity 
+    });
+};
 
 function getFiveDayIndex(data) {
     // check for the date in the api response and compare it to todays date plus one day,

@@ -175,8 +175,15 @@ main aside button:hover {
 .oneDayWeather h3,
 h2 {
     margin-left: 1vw;
+    text-align: center;
 }
 
 .oneDayWeather h3 {
     font-weight: 400;
+}
+
+.oneDayWeather img {
+    height: 20vh;
+    width: 20vh;
+    align-self: center;
 }
