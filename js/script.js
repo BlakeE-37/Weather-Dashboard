@@ -19,6 +19,10 @@ function populateFiveDayForecast(indexes, weatherList) {
         card.append(date)
 
         // create img icon
+        let icon = $('<img>')
+        let url = `https://openweathermap.org/img/wn/${weatherList[index].weather[0].icon}@2x.png`
+        icon.attr('src', url)
+        card.append(icon)
 
         // create temp
 
